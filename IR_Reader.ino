@@ -7,33 +7,37 @@ int timer = 0;
 int character = 0;
 int inc = 0;
 int reset = 0;
-String message;
+String message = "";
 
 void setup()
 {
   pinMode(ledPin, OUTPUT);
+  // A0 is always analog input
   Serial.begin(9600);
+  // sets up pins and starts a serial monitor for printing
 }
  
 void loop()
 {
  character = 0;
  int lightLevel = analogRead(lightPin);
- lightLevel = map(lightLevel, 0, 900, 0, 255); 
- lightLevel = constrain(lightLevel, 0, 255);
- if (lightLevel >= 127) {
+ lightLevel = constrain(lightLevel, 0, 1023);
+ if (lightLevel <= 900) {
   character ++;
   timer = 0;
   reset = 0;
-  delay(5);
+  delay(500);
+  // gets light levels set, and implements a delay to time out characters
  }
  timer ++;
+ delay(500);
  if (timer >= 4) {
    letter[inc] = character;
    inc ++;
    reset ++;
    timer = 0;
    character = 0;
+   // resets timer and character to develop message
    if (character == 1) {
      message += 'a';
    }
@@ -115,8 +119,9 @@ void loop()
    else if (character == 27) {
     message += " ";
    }
+   //char bank to add to message
  }
- if (reset >= 2) {
-  Serial.print(message);
+  Serial.println(message);
+  if (lightLevel <= 1000)
+    Serial.println(lightLevel);
  }
-}
