@@ -4,7 +4,9 @@ int lightPin = 0;
 int ledPin = 9;
 int timer = 0;
 int character = 0;
-String message = " ";
+int timeout = 0;
+int incoming = 0;
+String message = "";
 
 void setup()
 {
@@ -19,13 +21,18 @@ void loop()
  int lightLevel = analogRead(lightPin);
  lightLevel = constrain(lightLevel, 0, 1023);
  if (lightLevel <= 1000) {
+  if (incoming == 0) {
+    Serial.println("Incoming Message ...");
+    incoming = 1;
+  }
   character ++;
   timer = 0;
-  delay(15);
+  timeout = 0;
+  delay(10);
   // gets light levels set, and implements a delay to time out characters
  }
  timer ++;
- delay(15);
+ delay(10);
  if (timer >= 4) {
    // resets timer and character to develop message
    if (character == 1) {
@@ -113,5 +120,11 @@ void loop()
    timer = 0;
    //char bank to add to message
  }
+ timeout ++;
+ if (timeout >= 60 && !message.equals("")) {
     Serial.println(message);
+    message = "";
+    timeout = 0;
+    incoming = 0;
+ }
  }
