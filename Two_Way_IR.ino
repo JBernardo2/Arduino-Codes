@@ -127,7 +127,7 @@ void loop() {
  timeout ++;
  if (timeout >= 60 && !message2.equals("")) {
     Serial.println(message2);
-    message = "";
+    message2 = "";
     timeout = 0;
     incoming = 0;
  }
