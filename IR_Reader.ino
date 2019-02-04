@@ -28,93 +28,93 @@ void loop()
   character ++;
   timer = 0;
   timeout = 0;
-  delay(10);
+  delay(1);
   // gets light levels set, and implements a delay to time out characters
  }
  timer ++;
- delay(10);
+ delay(1);
  if (timer >= 4) {
    // resets timer and character to develop message
    if (character == 1) {
-     message += 'a';
+     message += " ";
    }
    else if (character == 2) {
-    message += 'b';
-   }
-   else if (character == 3) {
-    message += 'c';
-   }
-   else if (character == 4) {
-    message += 'd';
-   }
-   else if (character == 5) {
     message += 'e';
    }
+   else if (character == 3) {
+    message += 't';
+   }
+   else if (character == 4) {
+    message += 'a';
+   }
+   else if (character == 5) {
+    message += 'o';
+   }
    else if (character == 6) {
-    message += 'f';
-   }
-   else if (character == 7) {
-    message += 'g';
-   }
-   else if (character == 8) {
-    message += 'h';
-   }
-   else if (character == 9) {
     message += 'i';
    }
+   else if (character == 7) {
+    message += 'n';
+   }
+   else if (character == 8) {
+    message += 's';
+   }
+   else if (character == 9) {
+    message += 'h';
+   }
    else if (character == 10) {
-    message += 'j';
+    message += 'r';
    }
    else if (character == 11) {
-    message += 'k';
+    message += 'd';
    }
    else if (character == 12) {
     message += 'l';
    }
    else if (character == 13) {
-    message += 'm';
+    message += 'c';
    }
    else if (character == 14) {
-    message += 'n';
+    message += 'u';
    }
    else if (character == 15) {
-    message += 'o';
+    message += 'm';
    }
    else if (character == 16) {
-    message += 'p';
+    message += 'w';
    }
    else if (character == 17) {
-    message += 'q';
+    message += 'f';
    }
    else if (character == 18) {
-    message += 'r';
+    message += 'g';
    }
    else if (character == 19) {
-    message += 's';
+    message += 'y';
    }
    else if (character == 20) {
-    message += 't';
+    message += 'p';
    }
    else if (character == 21) {
-    message += 'u';
+    message += 'b';
    }
    else if (character == 22) {
     message += 'v';
    }
    else if (character == 23) {
-    message += 'w';
+    message += 'k';
    }
    else if (character == 24) {
-    message += 'x';
+    message += 'j';
    }
    else if (character == 25) {
-    message += 'y';
+    message += 'x';
    }
    else if (character == 26) {
-    message += 'z';
+    message += 'q';
    }
    else if (character == 27) {
-    message += " ";
+    message += 'z';
    }
    character = 0;
    timer = 0;
